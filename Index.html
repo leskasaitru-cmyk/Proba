@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#12100d">
+<title>Van Dessert — Рестро-бар в Мончегорске | Меню и цены</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --bg: #12100d;
+    --bg-soft: #1a1612;
+    --bg-card: #1e1a15;
+    --text: #f5efe3;
+    --text-muted: #9a8e7c;
+    --gold: #d4af6f;
+    --gold-light: #e8c88a;
+    --gold-dark: #a88b4a;
+    --gold-soft: rgba(212, 175, 111, 0.1);
+    --border: #2a231a;
+    --shadow-hover: rgba(212, 175, 111, 0.25);
+    --header-bg: rgba(18, 16, 13, 0.9);
+  }
+
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: -300px; right: -300px;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 175, 111, 0.12), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+
+  /* ХЕДЕР */
+  header {
+    padding: 20px 0;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+  }
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; white-space: nowrap; }
+
+  .logo-icon {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; flex-shrink: 0;
+    box-shadow: 0 6px 20px var(--shadow-hover);
+  }
+
+  .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+  .logo-text {
+    font-family: Georgia, serif;
+    font-size: 22px; font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--text); line-height: 1;
+  }
+
+  .logo-text span { color: var(--gold); font-style: italic; }
+
+  nav { display: flex; gap: 28px; }
+
+  nav a {
+    color: var(--text-muted); text-decoration: none;
+    font-size: 15px; font-weight: 500;
+    transition: color 0.3s; white-space: nowrap;
+  }
+  nav a:hover { color: var(--gold); }
+
+  .header-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: #12100d; text-decoration: none;
+    font-size: 14px; font-weight: 800;
+    border-radius: 100px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px var(--shadow-hover);
+    white-space: nowrap;
+  }
+  .header-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 30px var(--shadow-hover); }
+
+  /* ГЕРОЙ */
+  .hero { padding: 180px 0 100px; text-align: center; }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 20px;
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+    font-size: 13px; color: var(--gold);
+    margin-bottom: 28px;
+    background: var(--gold-soft);
+    font-weight: 700; letter-spacing: 1px;
+  }
+
+  .hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(48px, 10vw, 120px);
+    font-weight: 700; line-height: 0.95;
+    letter-spacing: -3px;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 .accent {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; font-style: italic;
+  }
+
+  .hero p {
+    font-size: clamp(16px, 2vw, 20px);
+    color: var(--text-muted);
+    max-width: 640px;
+    margin: 0 auto 44px; line-height: 1.7;
+  }
+
+  .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 18px 40px;
+    border-radius: 100px;
+    font-size: 15px; font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none; cursor: pointer; font-family: inherit;
+    min-height: 56px; text-align: center;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: #12100d;
+    box-shadow: 0 12px 30px var(--shadow-hover);
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 18px 45px var(--shadow-hover); }
+
+  .btn-ghost {
+    background: transparent; color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-soft); }
+
+  .hero-info {
+    display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;
+    padding-top: 40px; border-top: 1px solid var(--border);
+  }
+
+  .hero-info-item {
+    display: flex; align-items: center; gap: 10px;
+    color: var(--text-muted);
+    font-size: 15px; font-weight: 500;
+    text-decoration: none; transition: color 0.3s;
+  }
+  a.hero-info-item:hover { color: var(--gold); }
+  .hero-info-item .icon { font-size: 18px; }
+
+  /* СЕКЦИИ */
+  section { padding: 90px 0; }
+
+  .section-head { text-align: center; margin-bottom: 50px; }
+
+  .section-label {
+    display: block;
+    font-size: 13px; letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px; font-weight: 700;
+  }
+
+  .section-title {
+    font-family: Georgia, serif;
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 700; letter-spacing: -2px; line-height: 1.1;
+  }
+
+  .section-title .accent { color: var(--gold); font-style: italic; }
+
+  /* МЕНЮ — КАТЕГОРИИ */
+  .menu-tabs {
+    display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .menu-tab {
+    padding: 10px 22px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 14px; font-weight: 600;
+    font-family: inherit;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+  .menu-tab:hover { border-color: var(--gold); color: var(--gold); }
+  .menu-tab.active {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: #12100d;
+    border-color: transparent;
+    box-shadow: 0 8px 20px var(--shadow-hover);
+    font-weight: 800;
+  }
+
+  /* ПЛАШКИ МЕНЮ */
+  .menu-category { display: none; }
+  .menu-category.active { display: block; }
+
+  .menu-list {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .dish {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .dish:hover {
+    border-color: var(--gold);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .dish.open {
+    border-color: var(--gold);
+    background: var(--bg-soft);
+  }
+
+  /* Верхняя строка: название + цена + стрелка */
+  .dish-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 24px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.3s ease;
+  }
+
+  .dish-header:hover {
+    background: rgba(212, 175, 111, 0.05);
+  }
+
+  .dish-name {
+    font-family: Georgia, serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    color: var(--text);
+    line-height: 1.3;
+    flex-grow: 1;
+  }
+
+  .dish-weight {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .dish-price {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--gold);
+    white-space: nowrap;
+    letter-spacing: -0.3px;
+  }
+
+  .dish-arrow {
+    color: var(--gold);
+    font-size: 14px;
+    transition: transform 0.3s ease;
+    margin-left: 4px;
+    flex-shrink: 0;
+  }
+
+  .dish.open .dish-arrow {
+    transform: rotate(180deg);
+  }
+
+  /* Скрытая часть — открывается при клике */
+  .dish-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+    padding: 0 24px;
+  }
+
+  .dish.open .dish-details {
+    max-height: 400px;
+    opacity: 1;
+    padding: 0 24px 24px;
+  }
+
+  .dish-details-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Фото (если будет) */
+  .dish-photo {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--gold-soft), rgba(168, 139, 74, 0.15));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    opacity: 0.7;
+    overflow: hidden;
+  }
+
+  .dish-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .dish-info {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .dish-info strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* О НАС */
+  .about { background: var(--bg-soft); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .about-visual {
+    aspect-ratio: 4 / 5;
+    border-radius: 24px;
+    background: linear-gradient(135deg, var(--bg-card), var(--bg-soft));
+    border: 1px solid var(--gold);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5), 0 0 40px var(--shadow-hover);
+  }
+  .about-visual .icon { font-size: 110px; margin-bottom: 16px; }
+  .about-visual .text {
+    font-size: 14px; color: var(--text-muted);
+    text-align: center; padding: 0 20px; letter-spacing: 1px;
+  }
+
+  .about-text h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700; letter-spacing: -1.5px;
+    line-height: 1.2; margin-bottom: 24px;
+  }
+  .about-text h2 .accent { color: var(--gold); font-style: italic; }
+
+  .about-text p {
+    color: var(--text-muted);
+    font-size: 16px; line-height: 1.8; margin-bottom: 16px;
+  }
+
+  .about-points { list-style: none; margin-top: 28px; }
+  .about-points li {
+    position: relative;
+    padding: 10px 0 10px 34px;
+    font-size: 15px; color: var(--text);
+  }
+  .about-points li::before {
+    content: '✦';
+    position: absolute; left: 0; top: 10px;
+    font-size: 16px; color: var(--gold);
+  }
+
+  /* CTA */
+  .cta { padding: 100px 0; }
+
+  .cta-box {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    border-radius: 28px;
+    padding: 80px 40px;
+    text-align: center;
+    color: #12100d;
+    position: relative; overflow: hidden;
+    box-shadow: 0 30px 70px var(--shadow-hover);
+  }
+  .cta-box > * { position: relative; z-index: 1; }
+
+  .cta-box h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(30px, 6vw, 56px);
+    font-weight: 700; letter-spacing: -2px;
+    margin-bottom: 20px; line-height: 1;
+  }
+
+  .cta-box p {
+    font-size: 18px; opacity: 0.9;
+    max-width: 560px; margin: 0 auto 36px; line-height: 1.6;
+  }
+
+  .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  .btn-dark {
+    background: #12100d; color: var(--gold);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  }
+  .btn-dark:hover { transform: translateY(-3px); background: #000; }
+
+  /* КОНТАКТЫ */
+  .contacts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+  }
+
+  .contact-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px 28px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  .contact-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  a.contact-card { text-decoration: none; color: inherit; display: block; cursor: pointer; }
+  a.contact-card .value { color: var(--gold); }
+
+  .contact-icon { font-size: 36px; margin-bottom: 16px; display: block; }
+
+  .contact-card h3 {
+    font-size: 13px; color: var(--text-muted);
+    letter-spacing: 2px; text-transform: uppercase;
+    font-weight: 700; margin-bottom: 12px;
+  }
+
+  .contact-card .value {
+    font-size: 17px; font-weight: 700;
+    color: var(--text); text-decoration: none;
+    display: block; transition: color 0.3s; line-height: 1.4;
+  }
+  a.value:hover { color: var(--gold); }
+
+  .contact-card .note {
+    font-size: 13px; color: var(--text-muted); margin-top: 6px;
+  }
+
+  /* ФУТЕР */
+  footer {
+    padding: 50px 0 30px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 14px;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+  footer .footer-logo {
+    font-family: Georgia, serif;
+    font-size: 24px; font-weight: 700;
+    color: var(--text); margin-bottom: 14px;
+    font-style: italic;
+  }
+  footer .footer-logo span { color: var(--gold); }
+
+  /* АДАПТИВ */
+  @media (max-width: 900px) {
+    nav { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-visual { aspect-ratio: 16 / 9; max-width: 500px; margin: 0 auto; }
+    .about-visual .icon { font-size: 90px; }
+  }
+
+  @media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    section { padding: 60px 0; }
+    .hero { padding: 140px 0 60px; }
+    .cta-box { padding: 60px 28px; border-radius: 22px; }
+  }
+
+  @media (max-width: 640px) {
+    .container { padding: 0 16px; }
+    header { padding: 14px 0; }
+    .logo-icon { width: 42px; height: 42px; }
+    .logo-text { font-size: 18px; }
+    .header-cta { padding: 10px 18px; font-size: 12px; }
+
+    .hero { padding: 120px 0 50px; }
+    section { padding: 50px 0; }
+    .hero-buttons { flex-direction: column; width: 100%; }
+    .btn { width: 100%; padding: 16px 28px; font-size: 14px; }
+    .hero-info { flex-direction: column; gap: 12px; align-items: center; }
+
+    .menu-tabs { gap: 6px; margin-bottom: 30px; }
+    .menu-tab { padding: 8px 16px; font-size: 13px; }
+
+    .dish-header { padding: 16px 18px; gap: 10px; }
+    .dish-name { font-size: 15px; }
+    .dish-price { font-size: 16px; }
+    .dish-weight { font-size: 11px; }
+    .dish-details { padding: 0 18px; }
+    .dish.open .dish-details { padding: 0 18px 18px; }
+
+    .cta-box { padding: 50px 22px; border-radius: 20px; }
+    .cta-buttons { flex-direction: column; width: 100%; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ХЕДЕР -->
+<header>
+  <div class="container header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <img src="images/logo.jpg" alt="Van Dessert">
+      </div>
+      <div class="logo-text">Van<span>Dessert</span></div>
+    </a>
+    <nav>
+      <a href="#menu">Меню</a>
+      <a href="#about">О нас</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a href="#booking" class="header-cta">Забронировать</a>
+  </div>
+</header>
+
+<!-- ГЕРОЙ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">★ Рейтинг 4.6 в Яндекс.Картах</div>
+    <h1>Рестро-бар<br><span class="accent">в Мончегорске</span></h1>
+    <p>Авторская кухня, блюда на углях, паста и пицца. Просторные залы, живая музыка и танцпол по выходным.</p>
+    <div class="hero-buttons">
+      <a href="#menu" class="btn btn-primary">Смотреть меню</a>
+      <a href="#booking" class="btn btn-ghost">Забронировать</a>
+    </div>
+
+    <div class="hero-info">
+      <div class="hero-info-item">
+        <span class="icon">🕐</span>
+        Вт–Чт 11:00–23:00
+      </div>
+      <div class="hero-info-item">
+        <span class="icon">📍</span>
+        ул. Царевского, 18А
+      </div>
+      <a href="tel:+79210303336" class="hero-info-item">
+        <span class="icon">📞</span>
+        +7 (921) 030-33-36
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- МЕНЮ -->
+<section id="menu">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">✦ Меню</span>
+      <h2 class="section-title">Что у нас <span class="accent">есть</span></h2>
+    </div>
+
+    <div class="menu-tabs">
+      <button class="menu-tab active" onclick="showCategory('soups', this)">🍲 Супы</button>
+      <button class="menu-tab" onclick="showCategory('cold', this)">🥗 Холодные</button>
+      <button class="menu-tab" onclick="showCategory('hot-appetizers', this)">🍤 Горячие закуски</button>
+      <button class="menu-tab" onclick="showCategory('salads', this)">🥗 Салаты</button>
+      <button class="menu-tab" onclick="showCategory('grill', this)">🔥 На углях</button>
+      <button class="menu-tab" onclick="showCategory('hot', this)">🍖 Горячее</button>
+      <button class="menu-tab" onclick="showCategory('pasta', this)">🍝 Паста</button>
+      <button class="menu-tab" onclick="showCategory('pizza', this)">🍕 Пицца</button>
+      <button class="menu-tab" onclick="showCategory('breakfast', this)">🍳 Завтраки</button>
+      <button class="menu-tab" onclick="showCategory('desserts', this)">🍰 Десерты</button>
+    </div>
+
+    <!-- СУПЫ -->
+    <div class="menu-category active" id="soups">
+      <div class="menu-list">
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Борщ <span class="dish-weight">350/20/20 г</span></div>
+            <div class="dish-price">460 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍲</div>
+              <div class="dish-info"><strong>Описание:</strong> Традиционный борщ с салом, зеленью, со сметаной и хлебным тостом.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Солянка <span class="dish-weight">350/20/20 г</span></div>
+            <div class="dish-price">460 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍲</div>
+              <div class="dish-info"><strong>Описание:</strong> Классическая мясная солянка со сметаной, лимоном и зеленью.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Харчо <span class="dish-weight">350/20/20 г</span></div>
+            <div class="dish-price">460 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍲</div>
+              <div class="dish-info"><strong>Описание:</strong> Суп из говядины с чесноком, зеленью и хлебным тостом.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Финский суп <span class="dish-weight">300 г</span></div>
+            <div class="dish-price">550 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍲</div>
+              <div class="dish-info"><strong>Описание:</strong> Сливочный суп с лососем и картофелем.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ХОЛОДНЫЕ ЗАКУСКИ -->
+    <div class="menu-category" id="cold">
+      <div class="menu-list">
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Рыбная тарелка <span class="dish-weight">100/30 г</span></div>
+            <div class="dish-price">690 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🐟</div>
+              <div class="dish-info"><strong>Описание:</strong> Ассорти из слабосолёной рыбы с лимоном.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Сельдь под водочку <span class="dish-weight">100/100/50 г</span></div>
+            <div class="dish-price">470 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🐟</div>
+              <div class="dish-info"><strong>Описание:</strong> Сельдь с отварным картофелем и луком.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Мясное ассорти <span class="dish-weight">50/50/50 г</span></div>
+            <div class="dish-price">590 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥩</div>
+              <div class="dish-info"><strong>Описание:</strong> Ассорти из мясных деликатесов.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Язык с хреном <span class="dish-weight">70/30 г</span></div>
+            <div class="dish-price">520 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥩</div>
+              <div class="dish-info"><strong>Описание:</strong> Отварной говяжий язык с соусом из хрена.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Сырная фантазия к вину <span class="dish-weight">150/50/30 г</span></div>
+            <div class="dish-price">590 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🧀</div>
+              <div class="dish-info"><strong>Описание:</strong> Ассорти сыров с мёдом и орехами.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Овощной букет <span class="dish-weight">100/100/50 г</span></div>
+            <div class="dish-price">540 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥒</div>
+              <div class="dish-info"><strong>Описание:</strong> Свежие овощи с зеленью.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Соленья по-домашнему <span class="dish-weight">200 г</span></div>
+            <div class="dish-price">490 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥒</div>
+              <div class="dish-info"><strong>Описание:</strong> Домашние солёные овощи.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Рулетики из кабачков <span class="dish-weight">150 г</span></div>
+            <div class="dish-price">390 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥒</div>
+              <div class="dish-info"><strong>Описание:</strong> Рулетики из кабачков с начинкой.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Рулетики из баклажанов <span class="dish-weight">150 г</span></div>
+            <div class="dish-price">390 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍆</div>
+              <div class="dish-info"><strong>Описание:</strong> Рулетики из баклажанов с ореховой начинкой.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Рулетики из ветчины с сыром <span class="dish-weight">150 г</span></div>
+            <div class="dish-price">390 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🧀</div>
+              <div class="dish-info"><strong>Описание:</strong> Ветчина с сырной начинкой.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ГОРЯЧИЕ ЗАКУСКИ -->
+    <div class="menu-category" id="hot-appetizers">
+      <div class="menu-list">
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Королевские креветки в хрустящей панировке <span class="dish-weight">150 г</span></div>
+            <div class="dish-price">720 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍤</div>
+              <div class="dish-info"><strong>Описание:</strong> Креветки в панировке с соусом чили.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Гренки с чесночным соусом <span class="dish-weight">150/30 г</span></div>
+            <div class="dish-price">310 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍞</div>
+              <div class="dish-info"><strong>Описание:</strong> Хрустящие гренки с чесночным соусом.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Жульен классический <span class="dish-weight">120 г</span></div>
+            <div class="dish-price">330 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍄</div>
+              <div class="dish-info"><strong>Описание:</strong> Шампиньоны, репчатый лук, сыр.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- САЛАТЫ -->
+    <div class="menu-category" id="salads">
+      <div class="menu-list">
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Цезарь с курицей <span class="dish-weight">200 г</span></div>
+            <div class="dish-price">550 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥗</div>
+              <div class="dish-info"><strong>Описание:</strong> Классический Цезарь с курицей.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Цезарь с семгой <span class="dish-weight">200 г</span></div>
+            <div class="dish-price">590 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥗</div>
+              <div class="dish-info"><strong>Описание:</strong> Цезарь с семгой.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Цезарь с креветками <span class="dish-weight">200 г</span></div>
+            <div class="dish-price">620 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥗</div>
+              <div class="dish-info"><strong>Описание:</strong> Цезарь с креветками.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Греческий <span class="dish-weight">200 г</span></div>
+            <div class="dish-price">490 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥗</div>
+              <div class="dish-info"><strong>Описание:</strong> Овощной салат с фетой и фирменной заправкой.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Столичный <span class="dish-weight">200 г</span></div>
+            <div class="dish-price">480 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥗</div>
+              <div class="dish-info"><strong>Описание:</strong> Картофель, морковь, горошек, говядина, яйцо, огурцы, майонез.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Салат из свежих овощей <span class="dish-weight">200 г</span></div>
+            <div class="dish-price">470 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥗</div>
+              <div class="dish-info"><strong>Описание:</strong> Помидоры, огурцы, лук, зелень, перец, масло.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Куриный с булгуром <span class="dish-weight">200 г</span></div>
+            <div class="dish-price">530 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥗</div>
+              <div class="dish-info"><strong>Описание:</strong> Курица с булгуром и овощами.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Берёзка <span class="dish-weight">200 г</span></div>
+            <div class="dish-price">560 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥗</div>
+              <div class="dish-info"><strong>Описание:</strong> Ветчина, язык, шампиньоны, курица, грецкий орех, майонез.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Тёплый с говядиной <span class="dish-weight">200 г</span></div>
+            <div class="dish-price">640 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥗</div>
+              <div class="dish-info"><strong>Описание:</strong> Говяжья вырезка, микс салата, сливочный соус.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Тёплый с семгой <span class="dish-weight">200 г</span></div>
+            <div class="dish-price">650 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥗</div>
+              <div class="dish-info"><strong>Описание:</strong> Семга, микс салата, соус.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Из хрустящих баклажанов <span class="dish-weight">200 г</span></div>
+            <div class="dish-price">570 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍆</div>
+              <div class="dish-info"><strong>Описание:</strong> Баклажаны, помидоры, кисло-сладкий соус.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">С ростбифом <span class="dish-weight">200 г</span></div>
+            <div class="dish-price">590 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥗</div>
+              <div class="dish-info"><strong>Описание:</strong> Ростбиф, микс салата, соус, лук шалот, огурцы, зелень, лимон.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Ереван <span class="dish-weight">200 г</span></div>
+            <div class="dish-price">590 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥗</div>
+              <div class="dish-info"><strong>Описание:</strong> Овощной микс.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- БЛЮДА НА УГЛЯХ -->
+    <div class="menu-category" id="grill">
+      <div class="menu-list">
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Шашлык из свинины <span class="dish-weight">100 г</span></div>
+            <div class="dish-price">210 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍖</div>
+              <div class="dish-info"><strong>Описание:</strong> Шейка свинины на углях.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Шашлык из баранины <span class="dish-weight">100 г</span></div>
+            <div class="dish-price">350 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍖</div>
+              <div class="dish-info"><strong>Описание:</strong> Корейка баранины на углях.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Шашлык из говядины <span class="dish-weight">100 г</span></div>
+            <div class="dish-price">450 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍖</div>
+              <div class="dish-info"><strong>Описание:</strong> Вырезка говядины на углях.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Шашлык из курицы <span class="dish-weight">100 г</span></div>
+            <div class="dish-price">180 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍗</div>
+              <div class="dish-info"><strong>Описание:</strong> Грудка курицы на углях.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Люля из баранины <span class="dish-weight">100 г</span></div>
+            <div class="dish-price">230 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍖</div>
+              <div class="dish-info"><strong>Описание:</strong> На заказ.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Люля из говядины <span class="dish-weight">100 г</span></div>
+            <div class="dish-price">210 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍖</div>
+              <div class="dish-info"><strong>Описание:</strong> Люля-кебаб из говядины.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Люля из курицы <span class="dish-weight">100 г</span></div>
+            <div class="dish-price">190 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍗</div>
+              <div class="dish-info"><strong>Описание:</strong> Люля-кебаб из курицы.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Куриные крылышки <span class="dish-weight">100 г</span></div>
+            <div class="dish-price">140 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍗</div>
+              <div class="dish-info"><strong>Описание:</strong> Куриные крылышки на углях.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Семга на углях <span class="dish-weight">100 г</span></div>
+            <div class="dish-price">390 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🐟</div>
+              <div class="dish-info"><strong>Описание:</strong> Семга, запечённая на углях.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Овощи на углях <span class="dish-weight">100 г</span></div>
+            <div class="dish-price">120 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥦</div>
+              <div class="dish-info"><strong>Описание:</strong> Овощи гриль.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Грибы на углях <span class="dish-weight">100 г</span></div>
+            <div class="dish-price">230 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍄</div>
+              <div class="dish-info"><strong>Описание:</strong> Шампиньоны на углях.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Овощи гриль <span class="dish-weight">150 г</span></div>
+            <div class="dish-price">310 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥦</div>
+              <div class="dish-info"><strong>Описание:</strong> Овощи гриль.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Картофель по-деревенски <span class="dish-weight">150 г</span></div>
+            <div class="dish-price">210 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥔</div>
+              <div class="dish-info"><strong>Описание:</strong> Картофель по-деревенски.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ГОРЯЧИЕ БЛЮДА -->
+    <div class="menu-category" id="hot">
+      <div class="menu-list">
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Треска с овощами <span class="dish-weight">300 г</span></div>
+            <div class="dish-price">780 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🐟</div>
+              <div class="dish-info"><strong>Описание:</strong> Треска с овощами.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Семга с овощами <span class="dish-weight">300 г</span></div>
+            <div class="dish-price">920 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🐟</div>
+              <div class="dish-info"><strong>Описание:</strong> Семга с овощами.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Палтус с картофельным пюре <span class="dish-weight">300 г</span></div>
+            <div class="dish-price">790 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🐟</div>
+              <div class="dish-info"><strong>Описание:</strong> Палтус с пюре.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Семга в соусе с рисом <span class="dish-weight">300 г</span></div>
+            <div class="dish-price">770 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🐟</div>
+              <div class="dish-info"><strong>Описание:</strong> Семга в соусе с рисом.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Сковорода КАРРИ с креветками и овощами <span class="dish-weight">300 г</span></div>
+            <div class="dish-price">790 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍤</div>
+              <div class="dish-info"><strong>Описание:</strong> Креветки с овощами в соусе карри.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Курица в кисло-сладком соусе <span class="dish-weight">300 г</span></div>
+            <div class="dish-price">650 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍗</div>
+              <div class="dish-info"><strong>Описание:</strong> Курица с овощами в кисло-сладком соусе.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Курица КАРРИ с рисом <span class="dish-weight">300 г</span></div>
+            <div class="dish-price">670 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍗</div>
+              <div class="dish-info"><strong>Описание:</strong> Курица в соусе карри с рисом.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Крылышки в остро-сладком соусе <span class="dish-weight">300 г</span></div>
+            <div class="dish-price">590 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍗</div>
+              <div class="dish-info"><strong>Описание:</strong> Куриные крылышки с картофелем фри.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ПАСТА -->
+    <div class="menu-category" id="pasta">
+      <div class="menu-list">
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Карбонара <span class="dish-weight">300 г</span></div>
+            <div class="dish-price">520 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍝</div>
+              <div class="dish-info"><strong>Описание:</strong> Спагетти, бекон, сливки, сыр пармезан.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Паста с курицей и грибами <span class="dish-weight">300 г</span></div>
+            <div class="dish-price">540 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍝</div>
+              <div class="dish-info"><strong>Описание:</strong> Паста с курицей и грибами в сливочном соусе.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Фетучини с креветками <span class="dish-weight">300 г</span></div>
+            <div class="dish-price">620 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍝</div>
+              <div class="dish-info"><strong>Описание:</strong> Фетучини с креветками в сливочном соусе.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Спагетти Болоньезе <span class="dish-weight">300 г</span></div>
+            <div class="dish-price">520 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍝</div>
+              <div class="dish-info"><strong>Описание:</strong> Спагетти с мясным соусом болоньезе.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ПИЦЦА -->
+    <div class="menu-category" id="pizza">
+      <div class="menu-list">
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Маргарита <span class="dish-weight">500 г</span></div>
+            <div class="dish-price">540 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍕</div>
+              <div class="dish-info"><strong>Описание:</strong> Соус, зелень, сыр моцарелла.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Пепперони <span class="dish-weight">700 г</span></div>
+            <div class="dish-price">790 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍕</div>
+              <div class="dish-info"><strong>Описание:</strong> Соус, колбаса с/к, помидоры, перец болгарский, сыр моцарелла.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Четыре сыра <span class="dish-weight">700 г</span></div>
+            <div class="dish-price">810 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍕</div>
+              <div class="dish-info"><strong>Описание:</strong> Пармезан, дорблю, российский, моцарелла.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Ассорти <span class="dish-weight">700 г</span></div>
+            <div class="dish-price">820 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍕</div>
+              <div class="dish-info"><strong>Описание:</strong> Колбаски, соус, шампиньоны, болгарский перец, сыр моцарелла.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Цезарь с курицей <span class="dish-weight">700 г</span></div>
+            <div class="dish-price">760 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍕</div>
+              <div class="dish-info"><strong>Описание:</strong> Курица копчёная, сыр российский, помидоры черри.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Ветчина и грибы <span class="dish-weight">700 г</span></div>
+            <div class="dish-price">790 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍕</div>
+              <div class="dish-info"><strong>Описание:</strong> Ветчина, шампиньоны, соус, оливки, сыр моцарелла, зелень.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">С перцем халапеньо <span class="dish-weight">700 г</span></div>
+            <div class="dish-price">780 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍕</div>
+              <div class="dish-info"><strong>Описание:</strong> Курица копчёная, моцарелла, сыр голландский, перец чили.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ЗАВТРАКИ -->
+    <div class="menu-category" id="breakfast">
+      <div class="menu-list">
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Яичница с беконом и помидорами <span class="dish-weight">300 г</span></div>
+            <div class="dish-price">390 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍳</div>
+              <div class="dish-info"><strong>Описание:</strong> Яичница с беконом и помидорами.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Яичница с грибами и сыром <span class="dish-weight">300 г</span></div>
+            <div class="dish-price">390 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍳</div>
+              <div class="dish-info"><strong>Описание:</strong> Яичница с грибами и сыром.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Яичница с помидорами <span class="dish-weight">300 г</span></div>
+            <div class="dish-price">370 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍳</div>
+              <div class="dish-info"><strong>Описание:</strong> Яичница с помидорами.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Яичница с кабачками <span class="dish-weight">300 г</span></div>
+            <div class="dish-price">370 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍳</div>
+              <div class="dish-info"><strong>Описание:</strong> Яичница с кабачками.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ДЕСЕРТЫ -->
+    <div class="menu-category" id="desserts">
+      <div class="menu-list">
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Блины со сгущённым молоком</div>
+            <div class="dish-price">290 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥞</div>
+              <div class="dish-info"><strong>Описание:</strong> Блины со сгущёнкой.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Блины с джемом</div>
+            <div class="dish-price">290 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥞</div>
+              <div class="dish-info"><strong>Описание:</strong> Блины с джемом в ассортименте.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Блины со сметаной</div>
+            <div class="dish-price">290 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🥞</div>
+              <div class="dish-info"><strong>Описание:</strong> Блины со сметаной.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Фруктовая тарелка <span class="dish-weight">500 г</span></div>
+            <div class="dish-price">540 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍉</div>
+              <div class="dish-info"><strong>Описание:</strong> Ассорти из свежих фруктов.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Фруктовый салат <span class="dish-weight">180 г</span></div>
+            <div class="dish-price">290 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍓</div>
+              <div class="dish-info"><strong>Описание:</strong> Свежие фрукты.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Мороженое с фруктами <span class="dish-weight">180 г</span></div>
+            <div class="dish-price">330 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍨</div>
+              <div class="dish-info"><strong>Описание:</strong> Мороженое с фруктами.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Мороженое ассорти (3 шарика)</div>
+            <div class="dish-price">290 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍨</div>
+              <div class="dish-info"><strong>Описание:</strong> Три шарика мороженого на выбор.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Шоколадный брауни с мороженым</div>
+            <div class="dish-price">390 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍫</div>
+              <div class="dish-info"><strong>Описание:</strong> Тёплый брауни с шариком мороженого.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dish" onclick="toggleDish(this)">
+          <div class="dish-header">
+            <div class="dish-name">Варенье в ассортименте <span class="dish-weight">150 г</span></div>
+            <div class="dish-price">350 ₽</div>
+            <div class="dish-arrow">▼</div>
+          </div>
+          <div class="dish-details">
+            <div class="dish-details-inner">
+              <div class="dish-photo">🍯</div>
+              <div class="dish-info"><strong>Описание:</strong> Домашнее варенье.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- О НАС -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="icon">🍽</div>
+        <div class="text">Здесь могла быть<br>фотография зала</div>
+      </div>
+
+      <div class="about-text">
+        <h2>Рестро-бар <span class="accent">в Мончегорске</span></h2>
+        <p>Van Dessert — это рестро-бар с двумя просторными залами. В меню — блюда на углях, паста, пицца, десерты и авторская кухня.</p>
+        <p>По выходным — живая музыка и танцпол. Хорошее место для встреч с друзьями и семейных обедов.</p>
+
+        <ul class="about-points">
+          <li>Блюда на углях — шашлыки, люля, семга</li>
+          <li>Паста, пицца и европейская кухня</li>
+          <li>Два просторных зала для больших компаний</li>
+          <li>Живая музыка и танцпол по выходным</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="booking">
+  <div class="container">
+    <div class="cta-box">
+      <h2>Забронировать столик</h2>
+      <p>Позвоните нам, чтобы забронировать столик на вечер или уточнить детали.</p>
+      <div class="cta-buttons">
+        <a href="tel:+79210303336" class="btn btn-dark">📞 Позвонить</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- КОНТАКТЫ -->
+<section id="contacts">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">✦ Контакты</span>
+      <h2 class="section-title">Как нас <span class="accent">найти</span></h2>
+    </div>
+
+    <div class="contacts-grid">
+      <div class="contact-card">
+        <span class="contact-icon">📍</span>
+        <h3>Адрес</h3>
+        <div class="value">ул. Царевского, 18А</div>
+        <div class="note">Мончегорск</div>
+      </div>
+
+      <div class="contact-card">
+        <span class="contact-icon">🕐</span>
+        <h3>Часы работы</h3>
+        <div class="value">Вт–Чт: 11:00 – 23:00</div>
+        <div class="note">Пт–Сб до 02:00, Вс до 23:00</div>
+      </div>
+
+      <div class="contact-card">
+        <span class="contact-icon">📞</span>
+        <h3>Телефон</h3>
+        <a href="tel:+79210303336" class="value">+7 (921) 030-33-36</a>
+        <div class="note">Звонок и бронирование</div>
+      </div>
+
+      <a href="https://yandex.ru/maps/-/CXAv5WmE" target="_blank" rel="noopener" class="contact-card">
+        <span class="contact-icon">🗺</span>
+        <h3>На карте</h3>
+        <div class="value">Открыть в Яндекс.Картах</div>
+        <div class="note">ул. Царевского, 18А</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ФУТЕР -->
+<footer>
+  <div class="container">
+    <div class="footer-logo">Van<span>Dessert</span></div>
+    © 2026 Рестро-бар «Van Dessert» · Мончегорск
+  </div>
+</footer>
+
+<script>
+  /* ПЕРЕКЛЮЧЕНИЕ КАТЕГОРИЙ */
+  function showCategory(category, btn) {
+    document.querySelectorAll('.menu-category').forEach(cat => {
+      cat.classList.remove('active');
+    });
+    document.getElementById(category).classList.add('active');
+
+    document.querySelectorAll('.menu-tab').forEach(tab => {
+      tab.classList.remove('active');
+    });
+    btn.classList.add('active');
+  }
+
+  /* РАСКРЫТИЕ БЛЮДА ПО КЛИКУ */
+  function toggleDish(dish) {
+    const isOpen = dish.classList.contains('open');
+
+    // Закрыть все остальные (аккордеон)
+    document.querySelectorAll('.dish').forEach(d => {
+      d.classList.remove('open');
+    });
+
+    // Если кликнули на закрытое — открыть
+    if (!isOpen) {
+      dish.classList.add('open');
+    }
+  }
+
+  /* ПЛАВНОЕ ПОЯВЛЕНИЕ */
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReduced && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('section:not(.hero)').forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(40px)';
+      section.style.transition = 'opacity 0.9s ease, transform 0.9s ease';
+      observer.observe(section);
+    });
+
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }, i * 50);
+          cardObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.dish, .contact-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      cardObserver.observe(el);
+    });
+  }
+
+  /* СКРОЛЛ */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const headerHeight = document.querySelector('header').offsetHeight;
+        const targetPos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+        window.scrollTo({ top: targetPos, behavior: prefersReduced ? 'auto' : 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+  </html>
